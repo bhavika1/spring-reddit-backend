@@ -45,6 +45,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers(HttpMethod.GET, "/api/comments/**")
                 .permitAll()
+                .antMatchers(HttpMethod.GET, "/api/votes")
+                .permitAll()
+                .antMatchers(HttpMethod.GET, "/api/votes/**")
+                .permitAll()
                 .anyRequest()
                 .authenticated();
         httpSecurity.addFilterBefore(jwtAuthenticationFilter,
